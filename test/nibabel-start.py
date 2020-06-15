@@ -1,5 +1,9 @@
+"""This script shows how to use nibabel to load and save images.
+"""
+
 import os
 import numpy as np
+
 
 from nibabel.testing import data_path
 example_filename = os.path.join(data_path, 'example4d.nii.gz')

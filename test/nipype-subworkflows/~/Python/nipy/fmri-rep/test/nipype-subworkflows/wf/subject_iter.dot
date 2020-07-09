@@ -1,0 +1,7 @@
+digraph wf{
+  label="wf";
+  wf_selectdata[label="selectdata (utility)"];
+  wf_dg[label="dg (io)"];
+  wf_selectdata -> wf_dg;
+  wf_selectdata -> wf_dg;
+}

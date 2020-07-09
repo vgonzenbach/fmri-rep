@@ -1,4 +1,4 @@
-"""This script shows how to use modules and functions from nilearn
+"""TThis script shows how to use modules and functions from nilearn
     MODULES: image, masking, plotting, datasets
     Functions: 
 """
@@ -18,7 +18,7 @@ func_filename = haxby_dataset.func[0]
 mean_haxby = mean_img(func_filename)
 
 from nilearn.plotting import plot_epi, show
-plot_epi(mean_haxby, output_file = 'nilearn-fig/epi_image.pdf')
+plot_epi(mean_haxby, output_file = 'output/nilearn-fig/epi_image.pdf')
 #show()
 #plt.savefig('nilearn-fig/epi_image.pdf')
 
@@ -26,7 +26,7 @@ from nilearn.masking import compute_epi_mask
 mask_img = compute_epi_mask(func_filename)
 
 from nilearn.plotting import plot_roi
-plot_roi(mask_img, mean_haxby, output_file = 'nilearn-fig/roi_img.pdf')
+plot_roi(mask_img, mean_haxby, output_file = 'output/nilearn-fig/roi_img.pdf')
 #show()
 #plt.savefig('nilearn-fig/roi_img.pdf')
 
@@ -40,4 +40,4 @@ plt.xlabel('Time [TRs]', fontsize=16)
 plt.ylabel('Intensity', fontsize=16)
 plt.xlim(0,150)
 #show()
-plt.savefig('nilearn-fig/time-series.pdf')
+plt.savefig('output/nilearn-fig/time-series.pdf')

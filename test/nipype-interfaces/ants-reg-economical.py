@@ -2,6 +2,8 @@
     Parameters are chosen from John Muschelli's extrantsr::reg_write default parameters
     
     May upgrade with access to computational resources
+    
+    NOTE: These parameters were used in the preproc workflow
 """
 from nipype.interfaces.ants import Registration
 
@@ -12,7 +14,7 @@ template_path = Info.standard_image('MNI152_T1_1mm_brain.nii.gz')
 
 reg = Registration()
 reg.inputs.fixed_image = template_path
-reg.inputs.moving_image = 'test-data/haxby2001/subj2/anat.nii.gz'
+reg.inputs.moving_image = '../../data/ds000171/sub-control01/anat/sub-control01_T1w.nii.gz'
 
 # Choose the type of transforms and in what order to implement
 reg.inputs.transforms = ['Affine', 'SyN']
@@ -24,9 +26,6 @@ reg.inputs.sampling_percentage = [0.2, 1]
 
 # Parameters are (GradientStep, updateFieldVarianceInVoxelSpace, totalFieldVarianceInVoxelSpace)
 reg.inputs.transform_parameters = [(0.25,), (0.2, 3.0, 0.0)]
-
-# Specify where to save results
-reg.output_warped_image = 'output/ants-reg/anat_reg_econ.nii.gz'
 
 # Choose shinking factors and kernel size per iteration
 reg.inputs.number_of_iterations = [[2100,1200,1200,0],[40,20,0]]
